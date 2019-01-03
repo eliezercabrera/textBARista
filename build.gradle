@@ -1,0 +1,89 @@
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.5'
+    }
+}
+
+plugins {
+    id "com.google.protobuf" version "0.8.5"
+    id "java"
+    id "application"
+    id "idea"
+}
+
+group 'com.eli'
+version '1.0-SNAPSHOT'
+
+def grpcVersion = '1.12.0'
+def protocVersion = '3.5.1-1'
+
+protobuf {
+    protoc { artifact = "com.google.protobuf:protoc:${protocVersion}" }
+    plugins {
+        grpc { artifact = "io.grpc:protoc-gen-grpc-java:${grpcVersion}" }
+    }
+    generateProtoTasks {
+        all()*.plugins { grpc {} }
+    }
+    generatedFilesBaseDir = "$projectDir/src/generated"
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven { url "https://plugins.gradle.org/m2/" }
+}
+
+dependencies {
+    implementation 'com.google.guava:guava:26.0-jre'
+    testImplementation 'junit:junit:4.12'
+
+    compile "io.grpc:grpc-all:${grpcVersion}"
+    //implementation "io.grpc:grpc-stub:${grpcVersion}"
+}
+
+idea {
+    module {
+        sourceDirs += file("${projectDir}/src/generated/main/java")
+        sourceDirs += file("${projectDir}/src/generated/main/grpc")
+    }
+}
+
+task runServer(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'com.eli.textbarista.TextBaristaServer'
+}
+
+task runClient(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'com.eli.textbarista.TextBaristaClient'
+}
+
+startScripts.enabled = false
+
+task textBaristaClient(type: CreateStartScripts) {
+    mainClassName = 'com.eli.textbarista.TextBaristaClient'
+    applicationName = 'text-barista'
+    outputDir = new File(project.buildDir, 'tmp')
+    classpath = startScripts.classpath
+}
+
+task textBaristaServer(type: CreateStartScripts) {
+    mainClassName = 'com.eli.textbarista.TextBaristaServer'
+    applicationName = 'text-barista'
+    outputDir = new File(project.buildDir, 'tmp')
+    classpath = startScripts.classpath
+}
+
+applicationDistribution.into('bin') {
+    from(textBaristaClient)
+    from(textBaristaClient)
+    fileMode = 0755
+}
