@@ -96,3 +96,5 @@ fabric.properties
 
 /.idea/
 /gradle/
+/src/main/java/com/eli/textbarista/InputSchema.java
+/src/test/java/com/eli/textbarista/InputSchemaTest.java

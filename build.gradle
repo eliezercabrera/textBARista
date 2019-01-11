@@ -43,7 +43,8 @@ repositories {
 
 dependencies {
     implementation 'com.google.guava:guava:26.0-jre'
-    testImplementation 'junit:junit:4.12'
+    testCompile 'org.junit.jupiter:junit-jupiter-api:5.3.2'
+    testCompile 'org.junit.jupiter:junit-jupiter-params:5.3.2'
 
     compile "io.grpc:grpc-all:${grpcVersion}"
     //implementation "io.grpc:grpc-stub:${grpcVersion}"
