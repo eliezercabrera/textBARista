@@ -12,12 +12,12 @@ class ConfigurationLanguage {
 
   private static final ImmutableSet<Character> INVALID_IDENTIFIER_NAME_CHARACTERS =
       ImmutableSet.of(
-          SpecialSequences.SEPARATOR.getChar(),
-          SpecialSequences.IDENTIFIER_INTRODUCTOR.getChar(),
-          SpecialSequences.IDENTIFIER_OPENING.getChar(),
-          SpecialSequences.IDENTIFIER_CLOSING.getChar());
+          SpecialCharacterSequence.SEPARATOR.getChar(),
+          SpecialCharacterSequence.IDENTIFIER_INTRODUCTOR.getChar(),
+          SpecialCharacterSequence.IDENTIFIER_OPENING.getChar(),
+          SpecialCharacterSequence.IDENTIFIER_CLOSING.getChar());
 
-  enum SpecialSequences {
+  enum SpecialCharacterSequence {
     COMMENT("--"),
     SEPARATOR(":"),
     ESCAPE("\\"),
@@ -27,7 +27,7 @@ class ConfigurationLanguage {
 
     private final String sequence;
 
-    SpecialSequences(String sequence) {
+    SpecialCharacterSequence(String sequence) {
       this.sequence = sequence;
     }
 
@@ -43,7 +43,6 @@ class ConfigurationLanguage {
   private static boolean isInvalidIdentifierNameCharacter(char c) {
     return INVALID_IDENTIFIER_NAME_CHARACTERS.contains(c) || Character.isWhitespace(c);
   }
-
 
   static boolean validateIdentifierName(String identifierName) {
 
