@@ -10,29 +10,27 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class ConfigurationLanguageTest {
+class IdentifierTest {
 
   @ParameterizedTest(name = "run #{index} with [{arguments}]")
-  @MethodSource("createInvalidArguments")
+  @MethodSource("createInvalidIdentifiers")
   void detectsInvalidIdentifierNames(String invalidIdentifier, String reasonIdentifierIsInvalid) {
-    assertFalse(
-        ConfigurationLanguage.validateIdentifierName(invalidIdentifier), reasonIdentifierIsInvalid);
+    assertFalse(Identifier.validateIdentifierName(invalidIdentifier), reasonIdentifierIsInvalid);
   }
 
   @ParameterizedTest(name = "run #{index} with [{arguments}]")
-  @MethodSource("createValidArguments")
+  @MethodSource("createValidIdentifiers")
   void doesNotRejectValidIdentifierNames(String validIdentifier, String notableCharacteristic) {
     assertTrue(
-        ConfigurationLanguage.validateIdentifierName(validIdentifier),
+        Identifier.validateIdentifierName(validIdentifier),
         String.format(
             "Identifier with \"%s\" notable characteristic should be valid.",
             notableCharacteristic));
   }
 
-  private static Stream<Arguments> createInvalidArguments() {
+  private static Stream<Arguments> createInvalidIdentifiers() {
     String invalidlyLongIdentifier =
-        String.join(
-            "", Collections.nCopies(ConfigurationLanguage.MAXIMUM_IDENTIFIER_NAME_LENGTH + 1, "v"));
+        String.join("", Collections.nCopies(Identifier.MAXIMUM_IDENTIFIER_NAME_LENGTH + 1, "v"));
     return Stream.of(
         Arguments.of("", "Identifier name cannot be empty."),
         Arguments.of("my_invalid:identifier", "The character ':' is forbidden."),
@@ -47,10 +45,10 @@ class ConfigurationLanguageTest {
             invalidlyLongIdentifier,
             String.format(
                 "Identifier name is too long. Maximum length is %d characters.",
-                ConfigurationLanguage.MAXIMUM_IDENTIFIER_NAME_LENGTH)));
+                Identifier.MAXIMUM_IDENTIFIER_NAME_LENGTH)));
   }
 
-  private static Stream<Arguments> createValidArguments() {
+  private static Stream<Arguments> createValidIdentifiers() {
     return Stream.of(
         Arguments.of("v", "short_ascii"),
         Arguments.of("my-val1d_IDentifier", "long_ascii"),
