@@ -15,7 +15,8 @@ class Identifier {
           SpecialCharacterSequence.SEPARATOR.getChar(),
           SpecialCharacterSequence.IDENTIFIER_INTRODUCTOR.getChar(),
           SpecialCharacterSequence.IDENTIFIER_OPENING.getChar(),
-          SpecialCharacterSequence.IDENTIFIER_CLOSING.getChar());
+          SpecialCharacterSequence.IDENTIFIER_CLOSING.getChar(),
+          SpecialCharacterSequence.ASSIGNMENT_OPERATOR.getChar());
 
   private static boolean isInvalidIdentifierNameCharacter(char c) {
     return INVALID_IDENTIFIER_NAME_CHARACTERS.contains(c) || Character.isWhitespace(c);

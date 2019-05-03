@@ -6,7 +6,8 @@ enum SpecialCharacterSequence {
   ESCAPE("\\"),
   IDENTIFIER_INTRODUCTOR("$"),
   IDENTIFIER_OPENING("{"),
-  IDENTIFIER_CLOSING("}");
+  IDENTIFIER_CLOSING("}"),
+  ASSIGNMENT_OPERATOR("=");
 
   private final String sequence;
 

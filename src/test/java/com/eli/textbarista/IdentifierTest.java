@@ -37,6 +37,7 @@ class IdentifierTest {
         Arguments.of("my_invalid$identifier", "The character '$' is forbidden."),
         Arguments.of("my_invalid{identifier", "The character '{' is forbidden."),
         Arguments.of("my_invalid}identifier", "The character '}' is forbidden."),
+        Arguments.of("my_invalid=identifier", "The character '=' is forbidden."),
         Arguments.of("my_invalid${identifier}", "The characters \"${}\" are forbidden."),
         Arguments.of(" ", "Identifier name cannot contain whitespace."),
         Arguments.of("my_invalid identifier", "Identifier name cannot contain whitespace."),
@@ -52,7 +53,7 @@ class IdentifierTest {
     return Stream.of(
         Arguments.of("v", "short_ascii"),
         Arguments.of("my-val1d_IDentifier", "long_ascii"),
-        Arguments.of("345=-=*%@*()*%@*#()<%#@<,./?>#%", "symbols"),
+        Arguments.of("345-*%@*()*%@*#()<%#@<,./?>#%", "symbols"),
         Arguments.of("これはテストです", "unicode"));
   }
 }
