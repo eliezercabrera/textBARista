@@ -1,0 +1,4 @@
+identifier-a : BOOLEAN
+identifer-b : INTEGER
+identifier-c : DOUBLE
+identifier-d : STRING

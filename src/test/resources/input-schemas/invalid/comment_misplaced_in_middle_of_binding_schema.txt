@@ -1,0 +1,4 @@
+-- This comment should work.
+valid-binding-schema : BOOLEAN -- This comment and line should work too.
+-- This comment should work. Next line has a comment because of the double scores in the identifier name.
+binding--schema-contains-comment : BOOLEAN

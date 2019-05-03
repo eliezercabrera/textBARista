@@ -1,0 +1,12 @@
+-- File contains nine (9) errors in one line.
+-- Identifier name contains whitespace.
+-- Identifier name contains
+--   {
+--   $
+--   }
+-- NOTATYPE is not a type.
+-- DEFAULT is "taking two arguments".
+-- There is a misplaced type section.
+-- There are too many sections
+-- There is a dangling section (empty section).
+super illegal {$identifier} : NOTATYPE : DEFAULT "String literal is fine." nonsense : INTEGER :

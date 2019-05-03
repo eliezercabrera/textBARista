@@ -1,0 +1,1 @@
+separated　with　ideographic　whitespace　character : BOOLEAN

@@ -1,0 +1,5 @@
+-- This file contains two (2) errors.
+-- First section contains an illegal identifier name.
+-- Line contains only one section.
+-- Program won't detect that the first section is a misplaced kind section.
+DEFAULT "default string value"

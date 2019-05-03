@@ -1,0 +1,6 @@
+-- Line four contains a default type mismatch.
+identifier-a : BOOLEAN
+identifier-b : INTEGER : OPTIONAL
+identifier-c : DOUBLE : DEFAULT "3.1415"
+identifier-d : STRING : REQUIRED
+identifier-e : STRING

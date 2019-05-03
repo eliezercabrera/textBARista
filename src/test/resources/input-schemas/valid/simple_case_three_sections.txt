@@ -1,0 +1,15 @@
+identifier-a1 : BOOLEAN : REQUIRED
+identifier-a2 : BOOLEAN : OPTIONAL
+identifier-a3 : BOOLEAN : DEFAULT TRUE
+
+identifer-b1 : INTEGER : REQUIRED
+identifer-b2 : INTEGER : OPTIONAL
+identifer-b3 : INTEGER : DEFAULT 1
+
+identifier-c1 : DOUBLE : REQUIRED
+identifier-c2 : DOUBLE : OPTIONAL
+identifier-c3 : DOUBLE : DEFAULT 3.14
+
+identifier-d1 : STRING : REQUIRED
+identifier-d2 : STRING : OPTIONAL
+identifier-d3 : STRING : DEFAULT ""

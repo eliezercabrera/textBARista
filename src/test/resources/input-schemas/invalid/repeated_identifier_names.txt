@@ -1,0 +1,4 @@
+-- The identifier names in lines three and four are the same.
+
+identifier-name : BOOLEAN
+identifier-name : STRING

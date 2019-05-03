@@ -1,0 +1,5 @@
+-- This file contains two (2) errors.
+-- First section contains an illegal identifier name (reserved keyword).
+-- Line contains only one section.
+-- Program won't detect that the first section could be a misplaced type section.
+INTEGER

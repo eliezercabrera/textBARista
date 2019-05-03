@@ -1,0 +1,17 @@
+-- This file contains twelve (12) errors.
+
+bool-to-int : BOOLEAN :  DEFAULT 1113541
+bool-to-double : BOOLEAN : DEFAULT 1.0
+bool-to-string : BOOLEAN : DEFAULT "TRUE"
+
+int-to-bool : INTEGER : DEFAULT TRUE
+int-to-double : INTEGER : DEFAULT 1.0
+int-to-string : INTEGER : DEFAULT "1"
+
+double-to-bool : DOUBLE : DEFAULT FALSE
+double-to-int : DOUBLE : DEFAULT 2
+double-to-string : DOUBLE : DEFAULT "3.1415"
+
+string-to-bool : STRING : DEFAULT TRUE
+string-to-int : STRING : DEFAULT 3
+string-to-double : STRING : DEFAULT 3.1415

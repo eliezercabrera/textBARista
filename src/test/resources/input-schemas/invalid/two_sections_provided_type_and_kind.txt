@@ -1,0 +1,5 @@
+-- This file contains two (2) errors.
+-- First section contains an illegal identifier name (reserved keyword).
+-- Second section is not a type.
+-- Program won't report that the actual error is probably a missing identifier name.
+STRING : DEFAULT "Default string."
